@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/jakealves/glitch/internal/database"
+	"github.com/jakealves/glitch/lib/database"
 )
 
 var _ = Describe("When ConvertDatabaseRowsToJSON function is run", func() {

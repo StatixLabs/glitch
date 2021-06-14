@@ -1,12 +1,35 @@
-package main
+package cmd
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/jakealves/glitch/internal/database"
-	"github.com/jakealves/glitch/internal/file"
+	"github.com/jakealves/glitch/lib/database"
+	"github.com/jakealves/glitch/lib/file"
+	"github.com/spf13/cobra"
 )
+
+func init() {
+	rootCmd.AddCommand(sqlcompareCmd)
+}
+
+var sqlcompareCmd = &cobra.Command{
+	Use:   "sqlcompare",
+	Short: "one query against two types of databases.",
+	Long:  `Will take in a file with a sql query and run it against sql server and snowflake.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		runSqlCompareCmd(cmd, args)
+	},
+}
+
+// Command to Run SQL Compare
+func runSqlCompareCmd(cmd *cobra.Command, args []string) {
+	tsql, err := file.ReadContentsFromFile(args[1])
+	if err != nil {
+		fmt.Print(err)
+	}
+	RunSqlQueryAgainstSqlServer(tsql)
+	RunSqlQueryAgainstSnowflake(tsql)
+}
 
 // Run SQL query against SQL Server database
 func RunSqlQueryAgainstSqlServer(query string) {
@@ -54,13 +77,4 @@ func RunSqlQueryAgainstSnowflake(query string) {
 	if err != nil {
 		fmt.Print(err)
 	}
-}
-
-func main() {
-	tsql, err := file.ReadContentsFromFile(os.Args[1])
-	if err != nil {
-		fmt.Print(err)
-	}
-	RunSqlQueryAgainstSqlServer(tsql)
-	RunSqlQueryAgainstSnowflake(tsql)
 }

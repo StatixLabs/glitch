@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/jakealves/glitch/internal/utils"
+	"github.com/jakealves/glitch/lib/utils"
 )
 
 // ConvertDatabaseRowsToJSON convert db.rows to json

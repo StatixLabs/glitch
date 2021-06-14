@@ -1,0 +1,13 @@
+dir: true
+key: /testing
+nodes:
+  - key: /testing/child_value
+    value: child_value_nothing_more
+  - dir: true
+    key: /testing/child_dir
+    nodes:
+    - key: /testing/child_dir/0
+      value: "25"
+    - key: /testing/child_dir/1
+      value: "false"
+

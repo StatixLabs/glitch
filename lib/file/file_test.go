@@ -3,7 +3,7 @@ package file_test
 import (
 	"os"
 
-	"github.com/jakealves/glitch/internal/file"
+	"github.com/jakealves/glitch/lib/file"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

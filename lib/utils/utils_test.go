@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/jakealves/glitch/internal/utils"
+	"github.com/jakealves/glitch/lib/utils"
 )
 
 var _ = Describe("Running the ForceKeysToUppercase function", func() {
