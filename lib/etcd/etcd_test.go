@@ -18,7 +18,7 @@ var _ = Describe("Etcd", func() {
 		node4 etcd.ENode
 		err   error
 	)
-	FContext("When asked to write an Enode to a file", func() {
+	Context("When asked to write an Enode to a file", func() {
 		BeforeEach(func() {
 			node4.Key = "/testing/child_dir/1"
 			node4.Value = "false"
