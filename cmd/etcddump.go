@@ -30,7 +30,6 @@ var etcddumpCmd = &cobra.Command{
 	},
 }
 
-// Command to Run SQL Compare
 func runEtcdDumpCmd(cmd *cobra.Command, args []string) {
 	kapi := etcd.InitializeETCDClient(Url)
 	err := etcd.OuputKeys(kapi, RootKey, OutputPath)
